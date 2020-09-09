@@ -12,6 +12,7 @@ const viewpath=path.join(__dirname,'../Temp/View')
 const partialpath=path.join(__dirname,'../Temp/Partial')
 
 const app = express()
+const port=process.env.PORT||3000
 
 //set up handle bars for express
 app.set('view engine', 'hbs')
@@ -91,6 +92,6 @@ app.get('/weather', (req, res) => {
 app.get('*',(req,res)=>{
     res.send("404")
 })
-app.listen(3000,()=>{
-    console.log('server is up')
+app.listen(port,()=>{
+    console.log('server is up on port'+port)
 })
